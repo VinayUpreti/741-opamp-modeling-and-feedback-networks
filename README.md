@@ -195,7 +195,7 @@ of magnitude — at the cost of slightly higher price and power draw.
 
 ## Full write-up
 
-See [`docs/assignment_notes.md`](docs/assignment_notes.md) for the complete solution
+See [`docs/assignment_notes.md`](assignment_notes.md) for the complete solution
 set (all three problems, all hand-calculation steps, all simulation results) as a
 single Markdown document. The original source PDF is included at the repo root for
 reference.
