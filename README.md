@@ -57,8 +57,8 @@ textbook result `Vo/Vi = -R2/R1 = -100`, so `Vout = -100 V` for `Vi = 1 V`.
 node and the output node gives `Vout = -99.949 V` — a gain of `-99.949`, i.e. **0.051%
 deviation** from ideal.
 
-![Hand calculation setup for Case A and B](images/fig02_hand_calc_caseA_caseB_setup.png)
-![Full KCL derivation for Case B](images/fig03_hand_calc_caseB_derivation.png)
+![Hand calculation setup for Case A and B](fig02_hand_calc_caseA_caseB_setup.png)
+![Full KCL derivation for Case B](fig03_hand_calc_caseB_derivation.png)
 
 **Conclusion:** the ideal-op-amp approximation is extremely accurate here because
 `rd >> R1` (negligible current diverted into the input) and `r₀ << R2` (negligible
@@ -69,12 +69,12 @@ real op-amp.
 (`Avol = 200000`, `Rin = 2 MΩ`), and the input was swept to confirm the gain stays
 linear and constant.
 
-![UniversalOpAmp VCVS parameters](images/fig04_ltspice_universalopamp_params.png)
-![LTSpice inverting amplifier schematic](images/fig05_ltspice_inverting_amp_circuit.png)
-![Transient result confirming Vo/Vi = -100](images/fig06_transient_result_vout_vinp.png)
-![.step sweep of Rin from 1MΩ to 1GΩ](images/fig07_step_statement_editor_rinp_sweep.png)
-![Vout vs Rin sweep — negligible change confirms rd >> R1](images/fig08_vout_vs_rinp_sweep_plot.png)
-![Vo/Vi sweep from 1V to 5V — constant gain of -100](images/fig09_vo_vi_plot_vinp_sweep.png)
+![UniversalOpAmp VCVS parameters](fig04_ltspice_universalopamp_params.png)
+![LTSpice inverting amplifier schematic](fig05_ltspice_inverting_amp_circuit.png)
+![Transient result confirming Vo/Vi = -100](fig06_transient_result_vout_vinp.png)
+![.step sweep of Rin from 1MΩ to 1GΩ](fig07_step_statement_editor_rinp_sweep.png)
+![Vout vs Rin sweep — negligible change confirms rd >> R1](fig08_vout_vs_rinp_sweep_plot.png)
+![Vo/Vi sweep from 1V to 5V — constant gain of -100](fig09_vo_vi_plot_vinp_sweep.png)
 
 ## Problem 2 — Loading Effect & Buffer Circuits
 
@@ -86,29 +86,29 @@ the divider and drops the output voltage away from its unloaded (Thévenin) valu
 severity is set by the ratio `Rth/RL`: negligible when `RL >> Rth`, severe as `RL`
 approaches `Rth`.
 
-![Voltage divider with and without a buffer](images/fig10_problem2_voltage_divider_buffer_schematics.png)
+![Voltage divider with and without a buffer](fig10_problem2_voltage_divider_buffer_schematics.png)
 
 **(a) Without buffer, RL swept 1 kΩ → 100 kΩ:** output sags noticeably at low RL.
 **With buffer:** output stays pinned near 5 V regardless of RL — the op-amp isolates
 the divider from the load entirely.
 
-![LTSpice schematics for direct connection vs buffered](images/fig11_ltspice_schematic_loading_buffer.png)
-![RL sweep results: unbuffered sags, buffered stays flat](images/fig12_rl_sweep_results_loading_effect.png)
+![LTSpice schematics for direct connection vs buffered](fig11_ltspice_schematic_loading_buffer.png)
+![RL sweep results: unbuffered sags, buffered stays flat](fig12_rl_sweep_results_loading_effect.png)
 
 **(b) With buffer, open-loop gain (Aol) swept 100 → 1000 (DC):** as `Aol` increases,
 `Vout` converges toward the ideal unity-gain value — from ~994.5 mV at `Aol = 100` to
 ~999 mV at `Aol = 1000`. Higher open-loop gain makes the feedback loop track the input
 more tightly.
 
-![Buffer circuit with Aol swept](images/fig12b_buffer_circuit_aol_sweep_schematic.png)
-![Vout for Aol sweep — converges toward 1V as Aol increases](images/fig13_vout_aol_sweep_dc_plot.png)
+![Buffer circuit with Aol swept](fig12b_buffer_circuit_aol_sweep_schematic.png)
+![Vout for Aol sweep — converges toward 1V as Aol increases](fig13_vout_aol_sweep_dc_plot.png)
 
 **(c) Same sweep, AC 1 kHz input:** for very low `Aol` (=1) the loop can't maintain
 unity gain and the output is attenuated to roughly half amplitude. For `Aol ≥ 401` the
 output is virtually indistinguishable from the input — confirming that a sufficiently
 high open-loop gain is required for accurate buffering even at non-DC frequencies.
 
-![AC transient output with Aol swept](images/fig14_vout_aol_sweep_ac_plot.png)
+![AC transient output with Aol swept](fig14_vout_aol_sweep_ac_plot.png)
 
 ## Problem 3 — Real Op-Amp Design: LM741 vs LT1055
 
@@ -116,8 +116,8 @@ high open-loop gain is required for accurate buffering even at non-DC frequencie
 directly from the datasheet rather than assuming ideal behavior — then compare a
 BJT-input part (LM741) against a JFET-input part (LT1055).
 
-![LM741 pin connection diagram](images/fig15_lm741_pin_diagram.png)
-![LM741 electrical characteristics from the datasheet](images/fig16_lm741_electrical_characteristics.png)
+![LM741 pin connection diagram](fig15_lm741_pin_diagram.png)
+![LM741 electrical characteristics from the datasheet](fig16_lm741_electrical_characteristics.png)
 
 ### Design methodology (4 layers)
 
@@ -138,13 +138,13 @@ datasheet limit rather than a rule of thumb:
 5. **Layer 4 — Power/thermal check.** Confirms the design stays within safe power
    dissipation and output current limits.
 
-![Hand calc: Layer 0 — design specification](images/fig17_hand_calc_layer0_design_spec.png)
-![Hand calc: Layer 1 — bias & offset current](images/fig18_hand_calc_layer1_bias_offset_current.png)
-![Hand calc: Layer 1 — offset derivation](images/fig19_hand_calc_layer1_offset_derivation.png)
-![Hand calc: Layer 2 — resistance values](images/fig20_hand_calc_layer2_resistance_values.png)
-![Hand calc: Layer 2 — safe resistor range](images/fig21_hand_calc_layer2_safe_range.png)
-![Hand calc: Layer 3 — dynamic (GBW/slew rate) analysis](images/fig22_hand_calc_layer3_dynamic_analysis.png)
-![Hand calc: Layer 3 — GBW vs slew-rate crossover](images/fig23_hand_calc_layer3_crossover_analysis.png)
+![Hand calc: Layer 0 — design specification](fig17_hand_calc_layer0_design_spec.png)
+![Hand calc: Layer 1 — bias & offset current](fig18_hand_calc_layer1_bias_offset_current.png)
+![Hand calc: Layer 1 — offset derivation](fig19_hand_calc_layer1_offset_derivation.png)
+![Hand calc: Layer 2 — resistance values](fig20_hand_calc_layer2_resistance_values.png)
+![Hand calc: Layer 2 — safe resistor range](fig21_hand_calc_layer2_safe_range.png)
+![Hand calc: Layer 3 — dynamic (GBW/slew rate) analysis](fig22_hand_calc_layer3_dynamic_analysis.png)
+![Hand calc: Layer 3 — GBW vs slew-rate crossover](fig23_hand_calc_layer3_crossover_analysis.png)
 
 ### Final LM741 design
 
@@ -152,19 +152,19 @@ datasheet limit rather than a rule of thumb:
 it satisfies both the GBW-limited bandwidth of ~10 kHz and the slew-rate limit of
 ~16 kHz for the target output swing).
 
-![Final LM741 inverting amplifier design](images/fig24_final_lm741_circuit_design.png)
-![LM741 LTSpice schematic](images/fig25_lm741_ltspice_schematic.png)
-![LM741 transient — clean gain-of-100 inversion](images/fig26_lm741_transient_plot.png)
-![LM741 AC Bode plot](images/fig27_lm741_bode_plot.png)
-![LM741 Bode cursor measurement at -3dB](images/fig28_lm741_bode_cursor_measurement.png)
+![Final LM741 inverting amplifier design](fig24_final_lm741_circuit_design.png)
+![LM741 LTSpice schematic](fig25_lm741_ltspice_schematic.png)
+![LM741 transient — clean gain-of-100 inversion](fig26_lm741_transient_plot.png)
+![LM741 AC Bode plot](fig27_lm741_bode_plot.png)
+![LM741 Bode cursor measurement at -3dB](fig28_lm741_bode_cursor_measurement.png)
 
 ### LT1055 design (same procedure, JFET input)
 
-![LT1055 electrical characteristics from the datasheet](images/fig29_lt1055_electrical_characteristics.png)
-![LT1055 LTSpice schematic](images/fig30_lt1055_ltspice_schematic.png)
-![LT1055 transient — cleaner waveform, lower distortion](images/fig31_lt1055_transient_plot.png)
-![LT1055 AC Bode plot — wider bandwidth than LM741](images/fig32_lt1055_bode_plot.png)
-![LT1055 Bode cursor measurement at -3dB](images/fig33_lt1055_bode_cursor_measurement.png)
+![LT1055 electrical characteristics from the datasheet](fig29_lt1055_electrical_characteristics.png)
+![LT1055 LTSpice schematic](fig30_lt1055_ltspice_schematic.png)
+![LT1055 transient — cleaner waveform, lower distortion](fig31_lt1055_transient_plot.png)
+![LT1055 AC Bode plot — wider bandwidth than LM741](fig32_lt1055_bode_plot.png)
+![LT1055 Bode cursor measurement at -3dB](fig33_lt1055_bode_cursor_measurement.png)
 
 ### LM741 vs LT1055 — comparison
 
