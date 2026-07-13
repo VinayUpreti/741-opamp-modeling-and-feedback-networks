@@ -1,0 +1,10 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+
+# LTSpice artifacts (add your .asc/.plt files intentionally, exclude the noise)
+*.raw
+*.op.raw
+*.log
+*.bak
