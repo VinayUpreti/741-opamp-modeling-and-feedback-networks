@@ -16,7 +16,7 @@ Full write-up with all hand calculations and simulation results. See the top-lev
    - (d) Model the EOA using a VCVS in LTSpice; plot `Vo/Vi` while sweeping the input
      from 1V to 5V, then vary `rd` to observe the effect.
 
-![Fig 1: Inverting amplifier circuit with EOA model (rd = 2MΩ, R1 = 1kΩ, R2 = 100kΩ, ro = 75Ω, Aol = 200 V/mV)](../images/fig01_inverting_amplifier_eoa_model.png)
+![Fig 1: Inverting amplifier circuit with EOA model (rd = 2MΩ, R1 = 1kΩ, R2 = 100kΩ, ro = 75Ω, Aol = 200 V/mV)](fig01_inverting_amplifier_eoa_model.png)
 
 ### Solution
 
@@ -33,7 +33,7 @@ Vo/Vi = -(R2/R1) = -(100k/1k) = -100
 Vout  = -100 × Vi = -100 × 1V = -100V
 ```
 
-![Fig 2: Hand calculation — Case A (ideal op-amp, Vout = -100V) and Case B circuit setup with KCL equations at node V-](../images/fig02_hand_calc_caseA_caseB_setup.png)
+![Fig 2: Hand calculation — Case A (ideal op-amp, Vout = -100V) and Case B circuit setup with KCL equations at node V-](fig02_hand_calc_caseA_caseB_setup.png)
 
 **Case B: rd = 2MΩ, r0 = 75Ω, Vi = 1V (Practical EOA Model)**
 
@@ -45,7 +45,7 @@ V-[(1/10^3) + (1/2x10^6) + (1/10^5)] = Vout/10^5 + 1/10^3
 
 Solving the two simultaneous equations (full derivation below):
 
-![Fig 3: Hand calculation — Case B full derivation yielding Vout = -99.949V](../images/fig03_hand_calc_caseB_derivation.png)
+![Fig 3: Hand calculation — Case B full derivation yielding Vout = -99.949V](fig03_hand_calc_caseB_derivation.png)
 
 ```
 Vout = -99.949V
@@ -75,20 +75,20 @@ gain when R1/R2 are in the kΩ–100 kΩ range, as long as `rd >> R1` and `r₀ 
 The EOA was modeled with LTSpice's `UniversalOpAmp` component: `Avol = 200000`,
 `GBW = 10Meg`, `Rin = 2Meg`.
 
-![Fig 4: UniversalOpAmp parameters — Avol = 200000, Rin = 2MΩ](../images/fig04_ltspice_universalopamp_params.png)
+![Fig 4: UniversalOpAmp parameters — Avol = 200000, Rin = 2MΩ](fig04_ltspice_universalopamp_params.png)
 
-![Fig 5: LTSpice circuit — Inverting amplifier with UniversalOpAmp (R1 = 1kΩ, Rf = 100kΩ, ±10V supply), V1 = 1V DC](../images/fig05_ltspice_inverting_amp_circuit.png)
+![Fig 5: LTSpice circuit — Inverting amplifier with UniversalOpAmp (R1 = 1kΩ, Rf = 100kΩ, ±10V supply), V1 = 1V DC](fig05_ltspice_inverting_amp_circuit.png)
 
-![Fig 6: Transient result — V(vout) = -100V (red), V(vinp) = 1V (blue), confirming Vo/Vi = -100 for Vi = 1V](../images/fig06_transient_result_vout_vinp.png)
+![Fig 6: Transient result — V(vout) = -100V (red), V(vinp) = 1V (blue), confirming Vo/Vi = -100 for Vi = 1V](fig06_transient_result_vout_vinp.png)
 
 A `.step param Rinp 1Meg 1Gega 1000Meg` sweep was used to observe the effect of
 varying input resistance on `Vout`:
 
-![Fig 7: Sweep of Rinp from 1MΩ to 1GΩ to observe effect of varying input resistance on Vout](../images/fig07_step_statement_editor_rinp_sweep.png)
+![Fig 7: Sweep of Rinp from 1MΩ to 1GΩ to observe effect of varying input resistance on Vout](fig07_step_statement_editor_rinp_sweep.png)
 
-![Fig 8: V(vout) vs Rinp sweep — Rinp = 1M gives -99.9495V, Rinp = 1G gives -99.9495V; negligible difference confirms rd >> R1](../images/fig08_vout_vs_rinp_sweep_plot.png)
+![Fig 8: V(vout) vs Rinp sweep — Rinp = 1M gives -99.9495V, Rinp = 1G gives -99.9495V; negligible difference confirms rd >> R1](fig08_vout_vs_rinp_sweep_plot.png)
 
-![Fig 9: Vo/Vi plot sweeping Vinp from 1V to 5V — Vout scales linearly (-100V to -500V), confirming constant gain of -100 across the input range](../images/fig09_vo_vi_plot_vinp_sweep.png)
+![Fig 9: Vo/Vi plot sweeping Vinp from 1V to 5V — Vout scales linearly (-100V to -500V), confirming constant gain of -100 across the input range](fig09_vo_vi_plot_vinp_sweep.png)
 
 ---
 
@@ -104,7 +104,7 @@ varying input resistance on `Vout`:
    - (d) Model the EOA using a VCVS in LTSpice and plot `Vo/Vi` sweeping the input
      from 1V to 5V, then vary `rd`.
 
-![Fig 10: Voltage divider without buffer (loading effect) vs. voltage divider with op-amp buffer](../images/fig10_problem2_voltage_divider_buffer_schematics.png)
+![Fig 10: Voltage divider without buffer (loading effect) vs. voltage divider with op-amp buffer](fig10_problem2_voltage_divider_buffer_schematics.png)
 
 ### Solution
 
@@ -119,9 +119,9 @@ significantly.
 
 **2(a): Without Buffer — RL Swept from 1kΩ to 100kΩ**
 
-![Fig 11: LTSpice schematic — direct connection (a) with Rs = 100Ω, RL swept; buffer circuit (b) with Rs = 100Ω, Aol swept, RL = {R}](../images/fig11_ltspice_schematic_loading_buffer.png)
+![Fig 11: LTSpice schematic — direct connection (a) with Rs = 100Ω, RL swept; buffer circuit (b) with Rs = 100Ω, Aol swept, RL = {R}](fig11_ltspice_schematic_loading_buffer.png)
 
-![Fig 12: RL parametric sweep results (R = 1k, 21k, 41k, 61k, 81k, 100k). Top: without buffer — voltage drops noticeably at low RL. Bottom: with buffer — output remains nearly constant (~5V) regardless of RL](../images/fig12_rl_sweep_results_loading_effect.png)
+![Fig 12: RL parametric sweep results (R = 1k, 21k, 41k, 61k, 81k, 100k). Top: without buffer — voltage drops noticeably at low RL. Bottom: with buffer — output remains nearly constant (~5V) regardless of RL](fig12_rl_sweep_results_loading_effect.png)
 
 **Observation:** Without a buffer, output voltage decreases as RL decreases since RL
 loads the divider — at R = 1k the output is noticeably lower than 5V. With the op-amp
@@ -130,9 +130,9 @@ isolates the divider from the load and eliminates the loading effect.
 
 **2(b): With Buffer — Aol Swept (DC, Rs = 100Ω, Vs = 1V)**
 
-![Fig 12b: Buffer circuit with .step param Aol from 100 to 1k in steps of 100, V2 = 1V DC](../images/fig12b_buffer_circuit_aol_sweep_schematic.png)
+![Fig 12b: Buffer circuit with .step param Aol from 100 to 1k in steps of 100, V2 = 1V DC](fig12b_buffer_circuit_aol_sweep_schematic.png)
 
-![Fig 13: V(vout) for Aol sweep (100 to 1K) — as Aol increases, Vout converges toward 1V; lower Aol gives slight deviation](../images/fig13_vout_aol_sweep_dc_plot.png)
+![Fig 13: V(vout) for Aol sweep (100 to 1K) — as Aol increases, Vout converges toward 1V; lower Aol gives slight deviation](fig13_vout_aol_sweep_dc_plot.png)
 
 **Observation:** As Aol increases from 100 to 1000, `V(vout)` approaches 1V more
 closely — from about 994.5 mV at `Aol = 100` to about 999 mV at `Aol = 1000`. A higher
@@ -141,7 +141,7 @@ practical op-amps (`Aol = 10^5` to `10^6`) are effectively ideal for this applic
 
 **2(c): With Buffer — Aol Swept (AC 1kHz, Rs = 100Ω, Vs = 5V)**
 
-![Fig 14: AC transient output V(vout) with Aol swept (1, 201, 401, 601, 801, 1k) — for Aol = 1 the output amplitude is reduced (~2.5V peak) while higher Aol values produce clean unity-gain sine waves at 5V peak](../images/fig14_vout_aol_sweep_ac_plot.png)
+![Fig 14: AC transient output V(vout) with Aol swept (1, 201, 401, 601, 801, 1k) — for Aol = 1 the output amplitude is reduced (~2.5V peak) while higher Aol values produce clean unity-gain sine waves at 5V peak](fig14_vout_aol_sweep_ac_plot.png)
 
 **Observation:** For very low Aol (=1), the feedback loop is insufficient to maintain
 unity gain and the output sine wave is attenuated to roughly half the input amplitude.
@@ -161,11 +161,11 @@ frequencies.
    input/output voltage plot.
 3. Describe the difference between the two cases (hint: check the input pairs).
 
-![Fig 15: LM741 pin connection diagram (8-pin DIP)](../images/fig15_lm741_pin_diagram.png)
+![Fig 15: LM741 pin connection diagram (8-pin DIP)](fig15_lm741_pin_diagram.png)
 
 ### Hand Calculations — Design specification derivation using the LM741 datasheet
 
-![Fig 16: LM741 Electrical Characteristics (Texas Instruments) — Aol = 50-200 V/mV, Rin = 0.3-2MΩ, Vo swing = ±10V at RL ≥ 2kΩ, SR = 0.5 V/μs, GBW = 1MHz](../images/fig16_lm741_electrical_characteristics.png)
+![Fig 16: LM741 Electrical Characteristics (Texas Instruments) — Aol = 50-200 V/mV, Rin = 0.3-2MΩ, Vo swing = ±10V at RL ≥ 2kΩ, SR = 0.5 V/μs, GBW = 1MHz](fig16_lm741_electrical_characteristics.png)
 
 **Layer 0: Design Specification**
 
@@ -179,7 +179,7 @@ frequencies.
 Every calculation that follows is a ratio of *design value* over *limit*, where the
 limit comes from the datasheet and the design value comes from the requirement.
 
-![Fig 17: Hand calculation Layer 0 — Design specification: Vs = ±15V from datasheet, gain A = 100, Vos = 6mV max causes 600mV DC error at output](../images/fig17_hand_calc_layer0_design_spec.png)
+![Fig 17: Hand calculation Layer 0 — Design specification: Vs = ±15V from datasheet, gain A = 100, Vos = 6mV max causes 600mV DC error at output](fig17_hand_calc_layer0_design_spec.png)
 
 **Layer 1: Datasheet (Static Analysis)**
 
@@ -193,7 +193,7 @@ limit comes from the datasheet and the design value comes from the requirement.
    current to stay in their active region. Due to manufacturing mismatch (`β1 ≠ β2`
    between the pair), `Ib1 ≠ Ib2`, so `Ios = Ib1 - Ib2`.
 
-![Fig 18: Hand calculation Layer 1 — Input bias current (max 500nA), input offset current effects, and Rb = Rf‖R1 technique to minimize offset error](../images/fig18_hand_calc_layer1_bias_offset_current.png)
+![Fig 18: Hand calculation Layer 1 — Input bias current (max 500nA), input offset current effects, and Rb = Rf‖R1 technique to minimize offset error](fig18_hand_calc_layer1_bias_offset_current.png)
 
 Setting `Rb = Rf‖R1` at the non-inverting input compensates for matched bias current,
 leaving only the *offset* current (`Ios`) as an irreducible error term:
@@ -203,7 +203,7 @@ leaving only the *offset* current (`Ios`) as an irreducible error term:
 Vout,error = (Ios × Rb) × (1 + Rf/R1) = Ios × Rf
 ```
 
-![Fig 19: Hand calculation Layer 1 cont. — Derivation of output offset due to Ios: op error = Ios × Rf, with Ios = 200nA (datasheet). Shows Rb = R1‖Rf for compensation](../images/fig19_hand_calc_layer1_offset_derivation.png)
+![Fig 19: Hand calculation Layer 1 cont. — Derivation of output offset due to Ios: op error = Ios × Rf, with Ios = 200nA (datasheet). Shows Rb = R1‖Rf for compensation](fig19_hand_calc_layer1_offset_derivation.png)
 
 4. **Output voltage swing:** ±10V at RL ≥ 2kΩ (Vs = ±15V) → output is bounded between
    ±10V.
@@ -218,13 +218,13 @@ current error small while avoiding excessively large or small resistor values (t
 small a R1 risks pulling too much input current and can push the BJTs out of their
 active region).
 
-![Fig 20: Hand calculation Layer 2 — Resistance values: |Rf/R1| = 100, so Rf = 100kΩ, R1 = 1kΩ (safe range). If Rf → MΩ, Ib error becomes large. If R1 → 1Ω, BJT may leave active region](../images/fig20_hand_calc_layer2_resistance_values.png)
+![Fig 20: Hand calculation Layer 2 — Resistance values: |Rf/R1| = 100, so Rf = 100kΩ, R1 = 1kΩ (safe range). If Rf → MΩ, Ib error becomes large. If R1 → 1Ω, BJT may leave active region](fig20_hand_calc_layer2_resistance_values.png)
 
 With `R1 = 1kΩ`, `Rf = 100kΩ`: offset-current-driven error = `200nA × 100kΩ = 20mV`.
 Offset-voltage-driven error = `6mV × 100 = 600mV` (fixed, cannot be eliminated by
 resistor choice). `Rb = R1‖Rf ≈ 990Ω ≈ 1kΩ`.
 
-![Fig 21: Hand calculation Layer 2 cont. — Safe range R1 = 1kΩ, Rf = 100kΩ. Due to input offset voltage (6mV fixed), voltage error = 6mV × 100 = 600mV (fixed, cannot be eliminated by resistors). Rb = R1‖Rf = 990Ω ≈ 1kΩ](../images/fig21_hand_calc_layer2_safe_range.png)
+![Fig 21: Hand calculation Layer 2 cont. — Safe range R1 = 1kΩ, Rf = 100kΩ. Due to input offset voltage (6mV fixed), voltage error = 6mV × 100 = 600mV (fixed, cannot be eliminated by resistors). Rb = R1‖Rf = 990Ω ≈ 1kΩ](fig21_hand_calc_layer2_safe_range.png)
 
 *Why resistors are analyzed before Vin/frequency:* static analysis always comes
 first — frequency is a dynamic quantity, so the first analysis is done when nothing
@@ -246,14 +246,14 @@ fmax(slew rate) = SR / (2π × Vout_peak) = 0.5×10^6 / (2π × 5) ≈ 16kHz
 
 Beyond `fmax(SR)`, the output gets distorted (slope can't keep up) regardless of gain.
 
-![Fig 22: Hand calculation Layer 3 — GBW = 1MHz, |Av| = 100 → f3dB = 10kHz, fmax(SR) = SR/(2π × Vout_peak) = 0.5×10^6/(2π×5) ≈ 16kHz](../images/fig22_hand_calc_layer3_dynamic_analysis.png)
+![Fig 22: Hand calculation Layer 3 — GBW = 1MHz, |Av| = 100 → f3dB = 10kHz, fmax(SR) = SR/(2π × Vout_peak) = 0.5×10^6/(2π×5) ≈ 16kHz](fig22_hand_calc_layer3_dynamic_analysis.png)
 
 There is a tradeoff between GBW and slew rate; slew rate dominates in priority since
 it changes the *shape* of the output signal. For a 5V peak input signal,
 `fmax(SR) ≤ 16kHz` and `f3dB = 10kHz`, so 1 kHz is a safe, comfortable operating
 frequency for both small and large signals.
 
-![Fig 23: Hand calculation Layer 3 cont. — Crossover analysis: GBW vs SR limits. For 5V peak, f-SR = 16kHz > f-GBW = 10kHz → GBW governs. For 10V peak, f-SR = 8kHz < f-GBW = 10kHz → SR governs. Best choice: 1kHz signal](../images/fig23_hand_calc_layer3_crossover_analysis.png)
+![Fig 23: Hand calculation Layer 3 cont. — Crossover analysis: GBW vs SR limits. For 5V peak, f-SR = 16kHz > f-GBW = 10kHz → GBW governs. For 10V peak, f-SR = 8kHz < f-GBW = 10kHz → SR governs. Best choice: 1kHz signal](fig23_hand_calc_layer3_crossover_analysis.png)
 
 **Layer 4: Power & Thermal Check**
 
@@ -268,21 +268,21 @@ Output current = 5V / 100Ω = 0.05mA < 25mA → PASS
 `R1 = 1kΩ`, `Rf = 100kΩ`, `Rb = 1kΩ`, `Vs = ±15V` at 25°C.
 `Vinp = (0.01 to 0.1)sin(2000πt)V` → `Vout = -(1 to 10)sin(2000πt)V`.
 
-![Fig 24: Final LM741 inverting amplifier design](../images/fig24_final_lm741_circuit_design.png)
+![Fig 24: Final LM741 inverting amplifier design](fig24_final_lm741_circuit_design.png)
 
 ### LM741 Inverting Amplifier (Gain = 100) — Simulation
 
-![Fig 25: LM741 LTSpice circuit — R1 = 1kΩ, R2 = 100kΩ, R3 = 1kΩ (Rb), V1 = SINE(0, 0.1, 1000), ±15V supply](../images/fig25_lm741_ltspice_schematic.png)
+![Fig 25: LM741 LTSpice circuit — R1 = 1kΩ, R2 = 100kΩ, R3 = 1kΩ (Rb), V1 = SINE(0, 0.1, 1000), ±15V supply](fig25_lm741_ltspice_schematic.png)
 
-![Fig 26: LM741 transient — V(vout) peak = ±10V (red), V(vip) peak = ±100mV (blue). Gain = 10/0.1 = 100. Clean inversion confirmed](../images/fig26_lm741_transient_plot.png)
+![Fig 26: LM741 transient — V(vout) peak = ±10V (red), V(vip) peak = ±100mV (blue). Gain = 10/0.1 = 100. Clean inversion confirmed](fig26_lm741_transient_plot.png)
 
-![Fig 27: LM741 AC analysis (Bode plot) — flat gain ≈ 40dB from 1Hz to ~10kHz, then rolls off at -20dB/dec. Phase starts near 180° and drops](../images/fig27_lm741_bode_plot.png)
+![Fig 27: LM741 AC analysis (Bode plot) — flat gain ≈ 40dB from 1Hz to ~10kHz, then rolls off at -20dB/dec. Phase starts near 180° and drops](fig27_lm741_bode_plot.png)
 
-![Fig 28: LM741 Bode cursor measurement at -3dB point: Freq = 10.05kHz, Magnitude = 36.91dB (≈ 40 - 3dB), confirming f3dB ≈ 10kHz as predicted by GBW/|Av| = 1MHz/100](../images/fig28_lm741_bode_cursor_measurement.png)
+![Fig 28: LM741 Bode cursor measurement at -3dB point: Freq = 10.05kHz, Magnitude = 36.91dB (≈ 40 - 3dB), confirming f3dB ≈ 10kHz as predicted by GBW/|Av| = 1MHz/100](fig28_lm741_bode_cursor_measurement.png)
 
 ### LT1055 Inverting Amplifier (Gain = 100)
 
-![Fig 29: LT1055 Electrical Characteristics — key differences vs LM741: Vos = 500μV (max) vs 6mV, Ib = ±30pA vs 80nA, GBW = 4.5MHz vs 1MHz, SR = 7.5 V/μs vs 0.5 V/μs](../images/fig29_lt1055_electrical_characteristics.png)
+![Fig 29: LT1055 Electrical Characteristics — key differences vs LM741: Vos = 500μV (max) vs 6mV, Ib = ±30pA vs 80nA, GBW = 4.5MHz vs 1MHz, SR = 7.5 V/μs vs 0.5 V/μs](fig29_lt1055_electrical_characteristics.png)
 
 **Hand Calculations (LT1055)** follow the same 4-layer methodology as the LM741. Key
 differences:
@@ -320,13 +320,13 @@ enabling a like-for-like comparison.
 `R1 = 1kΩ`, `Rf = 100kΩ`, `Rb = 1kΩ`, `Vs = ±15V`.
 `Vinp = (0.01 to 0.1)sin(2000πt)V` → `Vout = -(1 to 10)sin(2000πt)V`.
 
-![Fig 30: LT1055 LTSpice circuit — same configuration as LM741: R1 = 1kΩ, R2 = 100kΩ, R3 = 1kΩ, V1 = SINE(0, 0.1, 1000), ±15V supply](../images/fig30_lt1055_ltspice_schematic.png)
+![Fig 30: LT1055 LTSpice circuit — same configuration as LM741: R1 = 1kΩ, R2 = 100kΩ, R3 = 1kΩ, V1 = SINE(0, 0.1, 1000), ±15V supply](fig30_lt1055_ltspice_schematic.png)
 
-![Fig 31: LT1055 transient — V(vout) peak = ±10V (red), V(vip) peak = ±100mV (green). Gain = 100. Waveform is cleaner than LM741 due to lower distortion](../images/fig31_lt1055_transient_plot.png)
+![Fig 31: LT1055 transient — V(vout) peak = ±10V (red), V(vip) peak = ±100mV (green). Gain = 100. Waveform is cleaner than LM741 due to lower distortion](fig31_lt1055_transient_plot.png)
 
-![Fig 32: LT1055 AC analysis (Bode plot) — flat gain ≈ 40dB up to ~40kHz, then rolls off. Higher bandwidth than LM741 due to GBW = 4.5MHz](../images/fig32_lt1055_bode_plot.png)
+![Fig 32: LT1055 AC analysis (Bode plot) — flat gain ≈ 40dB up to ~40kHz, then rolls off. Higher bandwidth than LM741 due to GBW = 4.5MHz](fig32_lt1055_bode_plot.png)
 
-![Fig 33: LT1055 Bode cursor at -3dB: Freq = 46.58kHz, Magnitude = 37.1dB ≈ 40-3dB. f3dB ≈ 45kHz, confirming GBW/|Av| = 4.5MHz/100 = 45kHz](../images/fig33_lt1055_bode_cursor_measurement.png)
+![Fig 33: LT1055 Bode cursor at -3dB: Freq = 46.58kHz, Magnitude = 37.1dB ≈ 40-3dB. f3dB ≈ 45kHz, confirming GBW/|Av| = 4.5MHz/100 = 45kHz](fig33_lt1055_bode_cursor_measurement.png)
 
 ### Comparison: LM741 vs LT1055
 
