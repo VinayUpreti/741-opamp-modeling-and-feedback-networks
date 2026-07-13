@@ -48,7 +48,7 @@ a VCVS with input resistance `rd`, output resistance `r₀`, and open-loop gain 
 | r₀ | 75 Ω |
 | Aol | 200 V/mV |
 
-![Inverting amplifier circuit with EOA model](images/fig01_inverting_amplifier_eoa_model.png)
+![Inverting amplifier circuit with EOA model](fig01_inverting_amplifier_eoa_model.png)
 
 **Case A — Ideal op-amp** (`rd = ∞`, `r₀ = 0`): virtual short/virtual open gives the
 textbook result `Vo/Vi = -R2/R1 = -100`, so `Vout = -100 V` for `Vi = 1 V`.
